@@ -5,7 +5,9 @@
 package Servelets;
 
 import Dao.StatisticsDao;
+import Entities.LastResult;
 import Entities.Player;
+import Entities.Score;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
@@ -33,16 +35,29 @@ public class Jogada extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        try{
+        
         Player playerLogged = (Player) getServletContext().getAttribute("PlayerLogged");
+        
         StatisticsDao statistcDao = (StatisticsDao) getServletContext().getAttribute("StastiticDAO");
+        
         int playerChoose = Integer.parseInt(request.getParameter("jogada"));
+        
         int computerChoose = Jogada();
         
         int result = whoWin(playerChoose,computerChoose);
+        
         statistcDao.update(playerLogged, result);
         
+        LastResult lastResult = new LastResult(computerChoose,playerChoose,result);
+        
+        
+        getServletContext().setAttribute("lastResult", lastResult);
+        
         response.sendRedirect("result.jsp");
-
+        }catch(Exception error){
+            System.out.println(error);
+        }
     }
 
     public int  whoWin(int escolhaJogador,int numeroSorteio ) {

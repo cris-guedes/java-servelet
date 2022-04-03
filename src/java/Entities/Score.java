@@ -14,6 +14,7 @@ public class Score {
     private int wins;
     private int ties;
     
+    
     public Score(){
         this.games = 0;
         this.loss = 0;
@@ -24,14 +25,23 @@ public class Score {
     public void Games(){
         games++;
     }
+    
     public void Loss(){
         loss++;
     }
+    
     public void Wins(){
         wins++;
     }
+    
     public void Ties(){
         ties++;
     }
+
+   
+    
+
+   
+    
     
 }

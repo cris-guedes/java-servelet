@@ -20,6 +20,7 @@ public class StatisticsDao {
     public void  create(Player player,Score score){
         statisticList.put(player, score);
     }
+    
     public void update(Player player,int result){
         Score score =  statisticList.get(player);
         score.Games();
@@ -37,6 +38,11 @@ public class StatisticsDao {
                 System.out.println("tie");
                 break;
         }
+    }
+    
+    public Score read(Player player){
+        return statisticList.get(player);
+        
     }
      
 }

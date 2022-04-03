@@ -14,18 +14,18 @@
     <body>
         <h2>Pedra - Papel - Tesoura </h2>
         <h3>Escolha Seu Jogo</h3>
-        <form method="Get" action="jogar">
+        <form method="Get" action="jogada">
             <div>
                 <div>
                    <input type="radio" value="1" name="jogada"/>
                    <img src="pedra_jogador.png" />
                 </div>
                 <div>
-                   <input type="radio" value="1" name="jogada"/>
+                   <input type="radio" value="2" name="jogada"/>
                    <img src="papel_jogador.png" />
                 </div>
                 <div>
-                   <input type="radio" value="1" name="jogada"/>
+                   <input type="radio" value="3" name="jogada"/>
                    <img src="tesoura_jogador.png" />
                 </div>
             </div>
