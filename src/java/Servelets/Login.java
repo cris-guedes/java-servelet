@@ -33,10 +33,11 @@ public class Login extends HttpServlet {
                  statistcDao = (StatisticsDao)getServletContext().getAttribute("StastiticDAO");
             }
             
+            
             statistcDao.create(playerLogged, scorePlayer);
             
     
-            getServletContext().setAttribute("PlayerLogged", playerLogged);
+            getServletContext().setAttribute("playerLogged", playerLogged);
        
             response.sendRedirect("jogar.jsp");
             

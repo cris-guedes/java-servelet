@@ -38,6 +38,22 @@ public class Score {
         ties++;
     }
 
+    public int getGames() {
+        return games;
+    }
+
+    public int getLoss() {
+        return loss;
+    }
+
+    public int getWins() {
+        return wins;
+    }
+
+    public int getTies() {
+        return ties;
+    }
+
    
     
 

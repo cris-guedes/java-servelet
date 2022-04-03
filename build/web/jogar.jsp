@@ -18,15 +18,15 @@
             <div>
                 <div>
                    <input type="radio" value="1" name="jogada"/>
-                   <img src="pedra_jogador.png" />
+                   <img src="1.png" />
                 </div>
                 <div>
                    <input type="radio" value="2" name="jogada"/>
-                   <img src="papel_jogador.png" />
+                   <img src="2.png" />
                 </div>
                 <div>
                    <input type="radio" value="3" name="jogada"/>
-                   <img src="tesoura_jogador.png" />
+                   <img src="3.png" />
                 </div>
             </div>
             <button>Jogar</button>

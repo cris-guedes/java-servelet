@@ -37,7 +37,7 @@ public class Jogada extends HttpServlet {
             throws ServletException, IOException {
         try{
         
-        Player playerLogged = (Player) getServletContext().getAttribute("PlayerLogged");
+        Player playerLogged = (Player) getServletContext().getAttribute("playerLogged");
         
         StatisticsDao statistcDao = (StatisticsDao) getServletContext().getAttribute("StastiticDAO");
         
@@ -79,7 +79,7 @@ public class Jogada extends HttpServlet {
 
     public int Jogada() {
         Random random = new Random();
-        int jogada = random.nextInt(3);
+        int jogada = random.nextInt(3)+1;
 
         return jogada;
     }

@@ -44,5 +44,6 @@ public class StatisticsDao {
         return statisticList.get(player);
         
     }
+    
      
 }

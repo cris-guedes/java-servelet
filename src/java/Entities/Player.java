@@ -23,6 +23,9 @@ public class Player {
         hash = 61 * hash + Objects.hashCode(this.name);
         return hash;
     }
+    public String getName(){
+        return name;
+    }
 
     @Override
     public boolean equals(Object obj) {
