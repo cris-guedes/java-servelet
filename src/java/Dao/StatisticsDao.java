@@ -13,16 +13,17 @@ import java.util.HashMap;
  * @author 55459
  */
 public class StatisticsDao {
-    HashMap<Player,Score> statisticList = new HashMap();
+    HashMap<String,Score> statisticList = new HashMap();
     
     public StatisticsDao(){}
     
     public void  create(Player player,Score score){
-        statisticList.put(player, score);
+        statisticList.put(player.name, score);
     }
     
     public void update(Player player,int result){
-        Score score =  statisticList.get(player);
+        Score score =  statisticList.get(player.name);
+        System.out.println(player.name);
         score.Games();
         switch (result) {
             case 0:
@@ -41,8 +42,12 @@ public class StatisticsDao {
     }
     
     public Score read(Player player){
-        return statisticList.get(player);
+        return statisticList.get(player.name);
         
+    }
+    public Boolean readByName(String name){
+    return statisticList.containsKey(name);
+    
     }
     
      

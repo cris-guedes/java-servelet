@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package Servelets;
+
 import Dao.StatisticsDao;
 import Entities.Player;
 import Entities.Score;
@@ -18,30 +19,29 @@ public class Login extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-            String name = request.getParameter("name");
-            
-            Player playerLogged = new Player(name);
-            
-            Score scorePlayer = new Score();
-            
-            
-            StatisticsDao statistcDao = (StatisticsDao)getServletContext().getAttribute("StastiticDAO");
-            
-            if(statistcDao == null){
-                 getServletContext().setAttribute("StastiticDAO",new StatisticsDao());
-                 statistcDao = (StatisticsDao)getServletContext().getAttribute("StastiticDAO");
-            }
-            
-            
-            statistcDao.create(playerLogged, scorePlayer);
-            
-    
-            getServletContext().setAttribute("playerLogged", playerLogged);
-       
-            response.sendRedirect("jogar.jsp");
-            
+
+        StatisticsDao statistcDao = (StatisticsDao) getServletContext().getAttribute("StastiticDAO");
+
+        if (statistcDao == null) {
+            getServletContext().setAttribute("StastiticDAO", new StatisticsDao());
+            statistcDao = (StatisticsDao) getServletContext().getAttribute("StastiticDAO");
         }
+
+        String name = request.getParameter("name");
+
+        Boolean alredyExist = statistcDao.readByName(name);
+        Player playerLogged = new Player(name);
+        getServletContext().setAttribute("playerLogged", playerLogged);
+
+        if (alredyExist == false) {
+            Score scorePlayer = new Score();
+            statistcDao.create(playerLogged, scorePlayer);
+        }
+
+        response.sendRedirect("jogar.jsp");
+
+    }
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -80,8 +80,4 @@ public class Login extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    }
-
-   
-    
-
+}
