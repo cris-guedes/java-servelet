@@ -12,13 +12,36 @@ public class LastResult {
     public int computerChoose;
     public int playerChoose;
     public int resultado;
+    public String templateResult;
 
     public LastResult(int computerChoose, int playerChoose, int resultado) {
         this.computerChoose = computerChoose;
         this.playerChoose = playerChoose;
         this.resultado = resultado;
+        setTemplateResult(resultado);
     }
+    public  void setTemplateResult(int result ){
+        String template;
+        
+      switch (result) {
+            case 0:
+                template = "Voce Perdeu";
+                break;
+            case 1:
+                template = "Voce venceu";
+                break;
+            default:
+                
+                template = "Empate";
+                break;
+        }
+      templateResult = template;
     
+    }
+
+    public String getTemplateResult() {
+        return templateResult;
+    }
   
     public int getComputerChoose() {
         return computerChoose;

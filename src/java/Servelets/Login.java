@@ -34,7 +34,7 @@ public class Login extends HttpServlet {
         getServletContext().setAttribute("playerLogged", playerLogged);
 
         if (alredyExist == false) {
-            Score scorePlayer = new Score();
+            Score scorePlayer = new Score(playerLogged.name);
             statistcDao.create(playerLogged, scorePlayer);
         }
 

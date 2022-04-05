@@ -22,6 +22,10 @@
     <body>
         <h2>Pedra - Papel - Tesoura </h2>
         <h4>Resultado </h4>
+        <div>
+            <h3>${lastResult.templateResult}</h3>
+           
+        </div>
 
         <div>
             
@@ -42,8 +46,15 @@
             <span>vitorias do Computador:${StastiticDAO.read(playerLogged).loss}</span>
              <span>empates:${StastiticDAO.read(playerLogged).ties}</span>
         </div>
+        
         <a href="jogar.jsp">
             <button> Jogar Novamente</button>   
+         <a/>
+          <a href="index.jsp">
+            <button> usar Outro Usuario</button>   
+         <a/>
+          <a href="listPlayers.jsp">
+            <button> ver lista</button>   
          <a/>
 
     </body>

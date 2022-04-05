@@ -6,6 +6,10 @@ package Dao;
 
 import Entities.Player;
 import Entities.Score;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 
 /**
@@ -13,16 +17,18 @@ import java.util.HashMap;
  * @author 55459
  */
 public class StatisticsDao {
-    HashMap<String,Score> statisticList = new HashMap();
-    
-    public StatisticsDao(){}
-    
-    public void  create(Player player,Score score){
+
+    HashMap<String, Score> statisticList = new HashMap();
+
+    public StatisticsDao() {
+    }
+
+    public void create(Player player, Score score) {
         statisticList.put(player.name, score);
     }
-    
-    public void update(Player player,int result){
-        Score score =  statisticList.get(player.name);
+
+    public void update(Player player, int result) {
+        Score score = statisticList.get(player.name);
         System.out.println(player.name);
         score.Games();
         switch (result) {
@@ -40,15 +46,29 @@ public class StatisticsDao {
                 break;
         }
     }
-    
-    public Score read(Player player){
+
+    public Score read(Player player) {
         return statisticList.get(player.name);
+
+    }
+
+    public Boolean readByName(String name) {
+        return statisticList.containsKey(name);
+
+    }
+
+    public ArrayList<Score> getAll() {
         
+        ArrayList<Score> list = new ArrayList();
+        for( Score s :  this.statisticList.values()  ){
+            list.add(s);
+        }
+        
+        Collections.sort(list);
+        Collections.reverse(list);
+        
+        return list;
+
     }
-    public Boolean readByName(String name){
-    return statisticList.containsKey(name);
-    
-    }
-    
-     
+
 }

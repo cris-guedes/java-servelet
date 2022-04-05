@@ -4,18 +4,22 @@
  */
 package Entities;
 
+import java.util.Comparator;
+
 /**
  *
  * @author 55459
  */
-public class Score {
+public class Score implements Comparable<Score>{
+    private String onwer;
     private int games;
     private int loss;
     private int wins;
     private int ties;
     
     
-    public Score(){
+    public Score(String onwer){
+        this.onwer = onwer;
         this.games = 0;
         this.loss = 0;
         this.ties = 0;
@@ -52,12 +56,17 @@ public class Score {
 
     public int getTies() {
         return ties;
+    } 
+     public String getOnwer() {
+        return onwer;
     }
 
-   
-    
-
-   
-    
+    public void setOnwer(String onwer) {
+        this.onwer = onwer;
+    }
+    @Override
+    public int compareTo(Score o) {
+        return Integer.compare(getWins(), o.getWins());
+    }
     
 }
